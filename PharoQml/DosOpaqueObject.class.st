@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 DosOpaqueObject class >> ffiLibraryName [
-	^DosLib uniqueInstance
+	^DosLib
 ]
 
 { #category : #'library path' }
