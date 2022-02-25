@@ -38,13 +38,7 @@ QVariant class >> createInt: value [
 
 { #category : #'as yet unclassified' }
 QVariant class >> createLongLong: value [
-	^self ffiCall: #(QVariant * dos_qvariant_create_longlong(long long value))
-	
-]
-
-{ #category : #'as yet unclassified' }
-QVariant class >> createObject: value [
-	^self ffiCall: #(QVariant * dos_qvariant_create_object(QObject *value))
+	^self ffiCall: #(QVariant * dos_qvariant_create_longlong(longlong value))
 	
 ]
 
@@ -67,7 +61,7 @@ QVariant class >> createString: value [
 
 { #category : #'as yet unclassified' }
 QVariant class >> createULongLong: value [
-	^self ffiCall: #(QVariant * dos_qvariant_create_ulonglong(unsigned long long value))
+	^self ffiCall: #(QVariant * dos_qvariant_create_ulonglong(ulonglong value))
 	
 ]
 
@@ -86,11 +80,12 @@ QVariant >> assign: other [
 
 { #category : #initialization }
 QVariant >> delete [
-	self ffiCall: #(void 	dos_qvariant_delete(QVariant *self))
+	self ffiCall: #(void 	dos_qvariant_delete(QVariant *self)).
+	handle beNull.
 ]
 
 { #category : #initialization }
-QVariant >> isNull [
+QVariant >> isNullVariant [
 	^self ffiCall: #(bool dos_qvariant_isnull(const QVariant *self))
 ]
 
@@ -122,7 +117,7 @@ QVariant >> setInt: value [
 
 { #category : #initialization }
 QVariant >> setLongLong: value [
-	self ffiCall: #(void dos_qvariant_setLongLong(QVariant *self, long long value))
+	self ffiCall: #(void dos_qvariant_setLongLong(QVariant *self, longlong value))
 ]
 
 { #category : #initialization }
@@ -137,7 +132,7 @@ QVariant >> setString: value [
 
 { #category : #initialization }
 QVariant >> setULongLong: value [
-	self ffiCall: #(void dos_qvariant_setULongLong(QVariant *self, unsigned long long value))
+	self ffiCall: #(void dos_qvariant_setULongLong(QVariant *self, ulonglong value))
 ]
 
 { #category : #'as yet unclassified' }
@@ -162,7 +157,7 @@ QVariant >> toInt [
 
 { #category : #'as yet unclassified' }
 QVariant >> toLongLong [
-	^self ffiCall: #(long long dos_qvariant_toLongLong(const QVariant *self))
+	^self ffiCall: #(longlong dos_qvariant_toLongLong(const QVariant *self))
 ]
 
 { #category : #printing }
@@ -177,5 +172,5 @@ QVariant >> toString [
 
 { #category : #'as yet unclassified' }
 QVariant >> toULongLong [
-	^self ffiCall: #(unsigned long long dos_qvariant_toULongLong(const QVariant *self))
+	^self ffiCall: #(ulonglong dos_qvariant_toULongLong(const QVariant *self))
 ]
