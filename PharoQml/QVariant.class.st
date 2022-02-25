@@ -81,7 +81,9 @@ QVariant >> assign: other [
 { #category : #initialization }
 QVariant >> delete [
 	self ffiCall: #(void 	dos_qvariant_delete(QVariant *self)).
+	handle isNull traceCr.
 	handle beNull.
+	handle isNull traceCr.
 ]
 
 { #category : #initialization }
