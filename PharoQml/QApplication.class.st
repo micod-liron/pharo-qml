@@ -26,7 +26,7 @@ QApplication class >> ffiLibraryName [
 
 { #category : #'library path' }
 QApplication class >> new [
-	self error: 'Cannot create instances of DosQApplication'
+	self error: 'Cannot create instances of QApplication'
 ]
 
 { #category : #operations }
