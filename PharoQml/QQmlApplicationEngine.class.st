@@ -10,13 +10,13 @@ QQmlApplicationEngine class >> create [
 ]
 
 { #category : #adding }
-QQmlApplicationEngine >> addImageProvider: vptr_i named: name [
-	self ffiCall: #(void dos_qqmlapplicationengine_addImageProvider(QQmlApplicationEngine *self, const char *name, QQuickImageProvider *vptr_i))
+QQmlApplicationEngine >> addImageProvider: provider named: name [
+	self ffiCall: #(void dos_qqmlapplicationengine_addImageProvider(QQmlApplicationEngine *self, String name, QQuickImageProvider *provider))
 ]
 
 { #category : #actions }
 QQmlApplicationEngine >> addImportPath: path [
-	self ffiCall: #(void dos_qqmlapplicationengine_add_import_path(QQmlApplicationEngine *self, const char *path))
+	self ffiCall: #(void dos_qqmlapplicationengine_add_import_path(QQmlApplicationEngine *self, String path))
 ]
 
 { #category : #actions }
@@ -31,15 +31,15 @@ QQmlApplicationEngine >> delete [
 
 { #category : #actions }
 QQmlApplicationEngine >> load: filename [
-	self ffiCall: #(void dos_qqmlapplicationengine_load(QQmlApplicationEngine *self, const char *filename))
+	self ffiCall: #(void dos_qqmlapplicationengine_load(QQmlApplicationEngine *self, String filename))
 ]
 
 { #category : #actions }
 QQmlApplicationEngine >> loadData: data [
-	self ffiCall: #(void dos_qqmlapplicationengine_load_url(QQmlApplicationEngine *self, const char *data))
+	self ffiCall: #(void dos_qqmlapplicationengine_load_url(QQmlApplicationEngine *self, String data))
 ]
 
 { #category : #actions }
 QQmlApplicationEngine >> loadUrl: url [
-	self ffiCall: #(void dos_qqmlapplicationengine_load_url(QQmlApplicationEngine *self, DosQUrl *url))
+	self ffiCall: #(void dos_qqmlapplicationengine_load_url(QQmlApplicationEngine *self, QUrl *url))
 ]
