@@ -13,6 +13,14 @@ QVariant class >> create [
 	^variant
 ]
 
+{ #category : #operations }
+QVariant class >> createArray: array size: size [
+	| variant |
+	variant := self ffiCall: #(QVariant * dos_qvariant_create_array(int size, QVariant **array)).
+	variant autoRelease.
+	^variant
+]
+
 { #category : #'as yet unclassified' }
 QVariant class >> createBool: value [
 	^self ffiCall: #(QVariant * dos_qvariant_create_bool(bool value))
@@ -98,6 +106,11 @@ QVariant >> resourceData [
 ]
 
 { #category : #initialization }
+QVariant >> setArray: array size: size [
+	self ffiCall: #(void dos_qvariant_setArray(DosQVariant *self, int size, QVariant **array))
+]
+
+{ #category : #initialization }
 QVariant >> setBool: value [
 	self ffiCall: #(void dos_qvariant_setBool(QVariant *self, bool value))
 ]
@@ -135,6 +148,11 @@ QVariant >> setString: value [
 { #category : #initialization }
 QVariant >> setULongLong: value [
 	self ffiCall: #(void dos_qvariant_setULongLong(QVariant *self, ulonglong value))
+]
+
+{ #category : #'as yet unclassified' }
+QVariant >> toArray [
+	^self ffiCall: #(QVariantArray * dos_qvariant_toArray(const QVariant *self))
 ]
 
 { #category : #'as yet unclassified' }
