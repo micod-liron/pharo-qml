@@ -36,7 +36,7 @@ QQmlApplicationEngine >> load: filename [
 
 { #category : #actions }
 QQmlApplicationEngine >> loadData: data [
-	self ffiCall: #(void dos_qqmlapplicationengine_load_url(QQmlApplicationEngine *self, String data))
+	self ffiCall: #(void dos_qqmlapplicationengine_load_data(QQmlApplicationEngine *self, String data))
 ]
 
 { #category : #actions }
