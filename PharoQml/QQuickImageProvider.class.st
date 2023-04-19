@@ -10,6 +10,6 @@ QQuickImageProvider class >> create: requestPixmapCallback [
 ]
 
 { #category : #'as yet unclassified' }
-QQuickImageProvider class >> delete [
+QQuickImageProvider >> delete [
 	self ffiCall: #(void dos_qquickimageprovider_delete(QQuickImageProvider *self))
 ]
